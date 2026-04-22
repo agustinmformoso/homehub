@@ -1,0 +1,309 @@
+@use '../styles/variables' as *;
+
+$color-rosa: #ec4899;
+$color-rosa-light: rgba(236, 72, 153, 0.15);
+$color-celeste: #0ea5e9;
+$color-celeste-light: rgba(14, 165, 233, 0.15);
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+// ── Selector de mes ──────────────────────────────────────────
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-4;
+}
+
+.navBtn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: $radius-full;
+  font-size: 1.25rem;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $color-border;
+    color: $color-text;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.monthLabel {
+  font-size: $font-size-base;
+  font-weight: 600;
+  color: $color-text;
+  min-width: 10rem;
+  text-align: center;
+}
+
+// ── Card total ───────────────────────────────────────────────
+
+.totalCard {
+  border-radius: $radius-lg;
+  padding: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2;
+  border: 1px solid $color-border;
+
+  &.rosa {
+    background: $color-rosa-light;
+    border-top: 3px solid $color-rosa;
+  }
+
+  &.celeste {
+    background: $color-celeste-light;
+    border-top: 3px solid $color-celeste;
+  }
+}
+
+.totalLabel {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-secondary;
+}
+
+.totalAmount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: $color-text;
+}
+
+// ── Secciones ────────────────────────────────────────────────
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.sectionTitle {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-text-muted;
+}
+
+.empty {
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  padding: $spacing-5 0;
+}
+
+// ── Alertas ──────────────────────────────────────────────────
+
+.alertsWidget {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.alertList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.alertItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-3;
+  padding: $spacing-3 $spacing-4;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: $color-surface;
+
+  &.paid {
+    opacity: 0.55;
+  }
+}
+
+.alertInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.alertName {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.alertCategory {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.alertBtn {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+  background: rgba(79, 70, 229, 0.08);
+  color: $color-primary;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  transition: background 0.15s;
+
+  &:hover {
+    background: rgba(79, 70, 229, 0.15);
+  }
+
+  &.alertBtnPaid {
+    background: rgba(34, 197, 94, 0.08);
+    color: $color-success;
+    border-color: rgba(34, 197, 94, 0.2);
+
+    &:hover {
+      background: rgba(34, 197, 94, 0.15);
+    }
+  }
+}
+
+// ── Categorías ───────────────────────────────────────────────
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.categoryRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.categoryName {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.categoryAmount {
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.barTrack {
+  height: 6px;
+  background: $color-border;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 0.4s ease;
+
+  &.rosa { background: $color-rosa; }
+  &.celeste { background: $color-celeste; }
+}
+
+.categoryPct {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  align-self: flex-end;
+}
+
+// ── Gastos ───────────────────────────────────────────────────
+
+.expenseList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.expenseCard {
+  background: $color-surface;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  border-left-width: 4px;
+  padding: $spacing-4;
+  box-shadow: $shadow-sm;
+
+  &.rosa { border-left-color: $color-rosa; }
+  &.celeste { border-left-color: $color-celeste; }
+}
+
+.expenseMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-3;
+}
+
+.expenseLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.expenseCategory {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.expenseDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expenseMeta {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.personalBadge {
+  background: rgba(245, 158, 11, 0.12);
+  color: $color-warning;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: $radius-full;
+  padding: 1px $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: 500;
+}
+
+.expenseAmount {
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $color-text;
+  white-space: nowrap;
+}

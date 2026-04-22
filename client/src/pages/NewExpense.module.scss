@@ -1,0 +1,230 @@
+@use '../styles/variables' as *;
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+// ── Monto ────────────────────────────────────────────────────
+
+.amountWrapper {
+  display: flex;
+  align-items: center;
+  background: $color-surface;
+  border: 2px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-3 $spacing-5;
+  gap: $spacing-2;
+  transition: border-color 0.15s;
+
+  &:focus-within {
+    border-color: $color-primary;
+  }
+}
+
+.currencySymbol {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $color-text-muted;
+  line-height: 1;
+}
+
+.amountInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: $color-text;
+  background: transparent;
+  width: 100%;
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &::placeholder {
+    color: $color-border;
+  }
+}
+
+// ── Toggle tipo ──────────────────────────────────────────────
+
+.typeToggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 3px;
+  gap: 3px;
+}
+
+.typeBtn {
+  padding: $spacing-2 $spacing-3;
+  border-radius: calc($radius-md - 2px);
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-secondary;
+  transition: background 0.15s, color 0.15s;
+
+  &.typeActive {
+    background: $color-surface;
+    color: $color-primary;
+    font-weight: 600;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// ── Campos ───────────────────────────────────────────────────
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.optional {
+  font-weight: 400;
+  color: $color-text-muted;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-surface;
+  outline: none;
+  -webkit-appearance: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+}
+
+.select {
+  @extend .input;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-4 center;
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+.newCategoryRow {
+  display: flex;
+  gap: $spacing-2;
+  margin-top: $spacing-2;
+
+  .input {
+    flex: 1;
+  }
+}
+
+.addCategoryBtn {
+  padding: $spacing-3 $spacing-4;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  border-radius: $radius-md;
+  white-space: nowrap;
+  transition: background 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ── Error ────────────────────────────────────────────────────
+
+.error {
+  font-size: $font-size-sm;
+  color: $color-danger;
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: $radius-sm;
+  padding: $spacing-3 $spacing-4;
+}
+
+// ── Acciones ─────────────────────────────────────────────────
+
+.actions {
+  display: flex;
+  gap: $spacing-3;
+  padding-top: $spacing-2;
+}
+
+.cancelBtn {
+  flex: 1;
+  padding: $spacing-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-secondary;
+  background: $color-surface;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $color-bg;
+  }
+}
+
+.submitBtn {
+  flex: 2;
+  padding: $spacing-3;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-size-base;
+  font-weight: 600;
+  border-radius: $radius-md;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

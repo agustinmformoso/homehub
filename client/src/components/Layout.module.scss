@@ -1,0 +1,125 @@
+@use '../styles/variables' as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: $color-bg;
+}
+
+// ── Header ───────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-4 $spacing-5;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.appName {
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 2rem;
+}
+
+.pageTitle {
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.headerRight {
+  width: 2rem;
+}
+
+// ── Main ─────────────────────────────────────────────────────
+
+.main {
+  flex: 1;
+  padding: $spacing-5;
+  overflow-y: auto;
+  // espacio extra para que el FAB no tape contenido
+  padding-bottom: calc($spacing-5 + 80px);
+}
+
+// ── Nav ──────────────────────────────────────────────────────
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: $spacing-2 $spacing-4;
+  padding-bottom: calc($spacing-2 + env(safe-area-inset-bottom, 0px));
+  background: $color-surface;
+  border-top: 1px solid $color-border;
+  box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: $spacing-1 $spacing-3;
+  border-radius: $radius-md;
+  color: $color-text-muted;
+  transition: color 0.15s;
+  flex: 1;
+
+  span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  &.active {
+    color: $color-primary;
+  }
+
+  // el item del FAB no tiene flex normal
+  &.fabItem {
+    flex: 0 0 auto;
+    padding: 0 $spacing-4;
+    margin-bottom: 4px;
+  }
+}
+
+// ── FAB central ──────────────────────────────────────────────
+
+.fab {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.45);
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    background: $color-primary-dark;
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+.fabActive .fab {
+  background: $color-primary-dark;
+}

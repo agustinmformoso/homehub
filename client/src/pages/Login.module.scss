@@ -1,0 +1,142 @@
+@use '../styles/variables' as *;
+
+.wrapper {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-6;
+  background: $color-bg;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: $color-surface;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-md;
+  padding: $spacing-8;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-8;
+}
+
+.icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: $spacing-3;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: $spacing-1;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-surface;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  -webkit-appearance: none;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputPassword {
+  @extend .input;
+  padding-right: 3rem;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: $spacing-3;
+  font-size: 1rem;
+  line-height: 1;
+  color: $color-text-muted;
+  padding: $spacing-1;
+  border-radius: $radius-sm;
+  transition: color 0.15s;
+
+  &:hover { color: $color-text; }
+}
+
+.error {
+  font-size: $font-size-sm;
+  color: $color-danger;
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: $radius-sm;
+  padding: $spacing-3 $spacing-4;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-size-base;
+  font-weight: 600;
+  border-radius: $radius-md;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
