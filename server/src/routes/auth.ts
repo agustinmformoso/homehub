@@ -6,11 +6,13 @@ import { verifyToken, AuthRequest } from '../middleware/auth'
 
 const router = Router()
 
+const isProd = process.env.NODE_ENV === 'production'
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  sameSite: 'strict' as const,
-  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
-  secure: process.env.NODE_ENV === 'production',
+  sameSite: (isProd ? 'none' : 'strict') as 'none' | 'strict',
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+  secure: isProd,
 }
 
 router.post('/login', async (req: Request, res: Response): Promise<void> => {
