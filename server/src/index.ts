@@ -9,6 +9,7 @@ import expenseRoutes from './routes/expenses'
 import categoryRoutes from './routes/categories'
 import dashboardRoutes from './routes/dashboard'
 import alertRoutes from './routes/alerts'
+import agendaRoutes from './routes/agenda'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -32,6 +33,7 @@ app.use('/api/expenses', expenseRoutes)
 app.use('/api/categories', categoryRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 app.use('/api/alerts', alertRoutes)
+app.use('/api/agenda', agendaRoutes)
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }))
 

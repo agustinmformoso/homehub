@@ -7,6 +7,7 @@ import DashboardShared from './pages/DashboardShared'
 import DashboardPersonal from './pages/DashboardPersonal'
 import NewExpense from './pages/NewExpense'
 import Settings from './pages/Settings'
+import Agenda from './pages/Agenda'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="compartido" element={<DashboardShared />} />
             <Route path="personal" element={<DashboardPersonal />} />
             <Route path="nuevo-gasto" element={<NewExpense />} />
+            <Route path="agenda" element={<Agenda />} />
             <Route path="configuracion" element={<Settings />} />
           </Route>
         </Routes>
