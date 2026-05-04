@@ -115,7 +115,8 @@ export default function NewExpense() {
           <input
             name="amount"
             type="number"
-            inputMode="numeric"
+            inputMode="decimal"
+            step="any"
             min="0"
             placeholder="0"
             value={form.amount}

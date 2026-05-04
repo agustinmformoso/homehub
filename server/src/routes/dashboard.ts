@@ -20,7 +20,7 @@ router.get('/shared', async (req: AuthRequest, res: Response): Promise<void> => 
   const year = Number(req.query.year) || new Date().getFullYear()
   const { start, end } = getMonthRange(month, year)
 
-  const expenses = await Expense.find({ date: { $gte: start, $lt: end } })
+  const expenses = await Expense.find({ type: 'compartido', date: { $gte: start, $lt: end } })
     .populate('user_id', 'display_name username')
     .populate('category_id', 'name')
     .sort({ date: -1, created_at: -1 })
